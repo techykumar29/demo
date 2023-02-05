@@ -22,7 +22,7 @@ public class NumberService {
     public BigDecimal square(Long number) {
         BigDecimal square = BigDecimal.valueOf(number)
                 .multiply(BigDecimal.valueOf(number));
-        log.info("square of {} is {}", number, square);
+        log.info("Service: square of {} is {}", number, square);
         return square;
     }
 
