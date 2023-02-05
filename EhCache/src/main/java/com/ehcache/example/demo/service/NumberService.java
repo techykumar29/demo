@@ -18,7 +18,7 @@ public class NumberService {
     @Cacheable(
             value = "getSquare",
             key = "#number",
-            condition = "#number>10")
+            condition = "#number>5")
     public BigDecimal square(Long number) {
         BigDecimal square = BigDecimal.valueOf(number)
                 .multiply(BigDecimal.valueOf(number));
