@@ -20,6 +20,12 @@ public class NumberController {
         return String.format("{\"square\": %s}", numberService.square(number));
     }
 
+    @GetMapping(path = "/cube/{number}")
+    public String getCube(@PathVariable Long number) {
+        log.info("Controller: call numberService to square {}", number);
+        return String.format("{\"square\": %s}", numberService.cube(number));
+    }
+
     @GetMapping("/cache/clear/all")
     public String clearAllCache(){
         log.info("Clearing cache");

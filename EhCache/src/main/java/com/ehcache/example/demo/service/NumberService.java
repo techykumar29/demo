@@ -37,4 +37,16 @@ public class NumberService {
         cache.evict(Long.parseLong(cacheKey));
         return "Cache is removed for :"+cacheKey;
     }
+
+    @Cacheable(
+            value = "cube",
+            key="#number",
+            condition = "#number > 5"
+    )
+    public BigDecimal cube(Long number) {
+        BigDecimal cube = BigDecimal.valueOf(number)
+                .multiply(BigDecimal.valueOf(number)).multiply(BigDecimal.valueOf(number));
+        log.info("Service: Cube of {} is {}", number, cube);
+        return cube;
+    }
 }
